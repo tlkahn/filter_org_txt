@@ -1,1 +1,7 @@
-patterns = ["rust", "toml", "test"]
+[[patterns]]
+pattern = "\\\\\\s*?$"
+replacement = ""
+
+[[patterns]]
+pattern = "(\\[\\[[^\\]]+?\\]\\[\\]\\])"
+replacement = ""

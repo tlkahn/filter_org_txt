@@ -5,7 +5,7 @@ fn main() {
     match load_patterns_from_toml(file_path) {
         Ok(patterns) => {
             for pattern in patterns {
-                println!("{}", pattern);
+                println!("pattern: {:?}", pattern);
             }
         }
         Err(e) => eprintln!("Error loading patterns: {}", e),

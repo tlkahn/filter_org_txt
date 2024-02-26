@@ -1,27 +1,21 @@
 use regex::Regex;
 use std::collections::HashMap;
-use std::fs::File;
-use std::io::Read;
-use toml::Value;
 
-pub fn load_patterns_from_toml(file: &str) -> Result<Vec<String>, Box<dyn std::error::Error>> {
-    let mut file = File::open(file)?;
-    let mut contents = String::new();
-    file.read_to_string(&mut contents)?;
-
-    let value: Value = toml::from_str(&contents)?;
-    let patterns = value
-        .get("patterns")
-        .ok_or("patterns key not found")?
-        .as_array()
-        .ok_or("patterns is not an array")?
+pub fn load_patterns_from_toml(file: &str) -> Result<Vec<HashMap<String, String>>, Box<dyn std::error::Error>> {
+    let contents = std::fs::read_to_string(file)?;
+    let value: toml::Value = toml::from_str(&contents)?;
+    let patterns = value["patterns"].as_array().ok_or("patterns is not an array")?
         .iter()
-        .map(|v| v.as_str().unwrap_or_default().to_string())
+        .map(|v| {
+            let mut pattern_map = HashMap::new();
+            pattern_map.insert("pattern".to_string(), v["pattern"].as_str().unwrap().to_string());
+            pattern_map.insert("replacement".to_string(), v["replacement"].as_str().unwrap().to_string());
+            pattern_map
+        })
         .collect();
 
     Ok(patterns)
 }
-
 pub fn apply_patterns(patterns: &[HashMap<String, String>], text: &str) -> String {
     patterns.iter().fold(text.to_string(), |acc, p| {
         if let (Some(pattern), Some(replacement)) = (p.get("pattern"), p.get("replacement")) {
