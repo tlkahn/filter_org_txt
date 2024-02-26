@@ -1,4 +1,4 @@
-use filter_org_txt::{apply_patterns, load_patterns_from_toml};
+use filter_org_txt::{apply_patterns, load_patterns_from_toml, replace_svg_xml_with_links};
 use std::env;
 use std::fs::File;
 use std::io::prelude::*;
@@ -10,8 +10,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let input_file_path = env::args().nth(1).expect("Missing input file path");
     let text = std::fs::read_to_string(&input_file_path)?;
+    let img_dir = format!("{}/Documents/org/web/WebImg", std::env::var("HOME").unwrap());
 
     let updated_text = apply_patterns(&patterns, &text);
+    let (updated_text, _) = replace_svg_xml_with_links(&img_dir, &updated_text);
 
     let output_file_path = env::args()
         .nth(2)

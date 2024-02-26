@@ -1,0 +1,39 @@
+[[patterns]]
+pattern = "\\\\s*?$"
+replacement = ""
+
+[[patterns]]
+pattern = "\\^{//}"
+replacement = ""
+
+[[patterns]]
+pattern = "^\\*+\\sIn this Article(.*?\\n)*?(?=By \\[\\[https://www\\.bloomberg.com/authors/)"
+replacement = ""
+
+[[patterns]]
+pattern = "^\\*+?\\s(?=Figure|Table|Example|Tip)"
+replacement = ""
+
+[[patterns]]
+pattern = "(?<=\\s)[^\\s]+?(?=\\\\\\(.+?\\\\\\))"
+replacement = ""
+
+[[patterns]]
+pattern = "\\* Bloomberg[\\s\\S]+?Block reference ID:"
+replacement = ""
+
+[[patterns]]
+pattern = "Gift this article\\n{2,}Have a confidential tip for our reporters\\? Get in Touch\\n{2,}Before it's here, it's on the Bloomberg Terminal\\n{2,}\\sLEARN MORE\\n"
+replacement = ""
+
+[[patterns]]
+pattern = "^\\sLEARN\\sMORE\\n"
+replacement = ""
+
+[[patterns]]
+pattern = "\\n^Save\\n"
+replacement = ""
+
+[[patterns]]
+pattern = "////Copy Link\\n"
+replacement = ""

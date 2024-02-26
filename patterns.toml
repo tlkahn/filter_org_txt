@@ -35,15 +35,11 @@ pattern = "^\\s*?-\\s*?$"
 replacement = ""
 
 [[patterns]]
-pattern = "\\* Bloomberg[\\s\\S]+?Block reference ID:"
-replacement = ""
-
-[[patterns]]
-pattern = " "
+pattern = "\\u{a0}"
 replacement = " "
 
 [[patterns]]
-pattern = "­"
+pattern = "\\u{ad}"
 replacement = ""
 
 [[patterns]]
@@ -64,14 +60,6 @@ replacement = ""
 
 [[patterns]]
 pattern = "^Listen\\n\\n\\d?\\d:\\d\\d\\n"
-replacement = ""
-
-[[patterns]]
-pattern = "^\\*+\\sIn this Article(.*?\\n)*?(?=By \\[\\[https://www\\.bloomberg.com/authors/)"
-replacement = ""
-
-[[patterns]]
-pattern = "^\\sLEARN\\sMORE\\n"
 replacement = ""
 
 [[patterns]]
@@ -99,10 +87,6 @@ pattern = "·"
 replacement = "-"
 
 [[patterns]]
-pattern = "^\\*+?\\s(?=Figure|Table|Example|Tip)"
-replacement = ""
-
-[[patterns]]
 pattern = "\\[\\[([^\\]]+?)\\]\\[([^\\[]+?)\\[\\[(file:\\/\\/[^\\]]+?)\\]\\]\\]\\]"
 replacement = "[[\\1][\\2]][[\\3]]"
 
@@ -123,37 +107,21 @@ pattern = "\\[\\[[^\\]]+?\\]\\[\\]\\]"
 replacement = ""
 
 [[patterns]]
-pattern = "\\^{//}"
-replacement = ""
-
-[[patterns]]
 pattern = "\\*\\sAn\\serror\\soccurred\\.\\n\\n\\[\\[(https:\\/\\/www\\.youtube\\.com/watch\\?v=[^\\]]+?)\\]\\[Try\\swatching\\sthis\\svideo\\son\\swww\\.youtube\\.com\\]\\],\\sor\\senable\\sJavaScript\\sif\\sit\\sis\\sdisabled\\sin\\syour\\sbrowser\\."
 replacement = "[[\\1]]"
-
-[[patterns]]
-pattern = "Gift this article\\n{2,}Have a confidential tip for our reporters\\? Get in Touch\\n{2,}Before it's here, it's on the Bloomberg Terminal\\n{2,}\\sLEARN MORE\\n"
-replacement = ""
-
-[[patterns]]
-pattern = "\\n^Save\\n"
-replacement = ""
-
-[[patterns]]
-pattern = "////Copy Link\\n"
-replacement = ""
 
 [[patterns]]
 pattern = "\\[\\[[^\\]]+?\\]\\[#\\]\\]"
 replacement = ""
 
 [[patterns]]
-pattern = "(?<=\\s)[^\\s]+?(?=\\\\\\(.+?\\\\\\))"
-replacement = ""
-
-[[patterns]]
 pattern = "\\n{2,}"
-replacement = "\\n\\n"
+replacement = "\n\n"
 
 [[patterns]]
 pattern = "\\[{3}[^\\]]+?\\]{3}"
+replacement = ""
+
+[[patterns]]
+pattern = ":PROPERTIES:\\n(:.+?:\\s.*?\\n)*?:END:"
 replacement = ""
