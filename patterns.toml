@@ -1,0 +1,159 @@
+[[patterns]]
+pattern = "\\\\\\s*?$"
+replacement = ""
+
+[[patterns]]
+pattern = "(\\[\\[[^\\]]+?\\]\\[\\]\\])"
+replacement = ""
+
+[[patterns]]
+pattern = "\\[\\[[^\\]+?]+?\\]\\[\\[\\[data:[^\\]]+?\\]\\]\\]\\]"
+replacement = ""
+
+[[patterns]]
+pattern = "\\s*?<<[^>]+?>>\\s*?"
+replacement = ""
+
+[[patterns]]
+pattern = "^(^\\d+?\\.?)\\s*$\\n*^\\s*?([^\\s][^\\n]*?)$"
+replacement = "\\1 \\2"
+
+[[patterns]]
+pattern = "^(\\*+?)\\s+?([^\\s].*?$)"
+replacement = "\\1 \\2"
+
+[[patterns]]
+pattern = "\\[\\[file:([^\\]]+?)\\]\\]"
+replacement = "\\1"
+
+[[patterns]]
+pattern = "\\[\\[file:([^\\]]+?)\\]\\[([^\\]]+?)\\]\\]"
+replacement = "\\2"
+
+[[patterns]]
+pattern = "^\\s*?-\\s*?$"
+replacement = ""
+
+[[patterns]]
+pattern = "\\* Bloomberg[\\s\\S]+?Block reference ID:"
+replacement = ""
+
+[[patterns]]
+pattern = " "
+replacement = " "
+
+[[patterns]]
+pattern = "­"
+replacement = ""
+
+[[patterns]]
+pattern = "\\[\\[[^\\]]+?\\]\\[¶\\]\\]"
+replacement = ""
+
+[[patterns]]
+pattern = "^(\\*)*?\\s*?(:PROPERTIES:(.|\\n)*?:END:)"
+replacement = ""
+
+[[patterns]]
+pattern = "(^#\\+caption:.*?\\n)"
+replacement = "\\1#+attr_html: :width 80%\\n"
+
+[[patterns]]
+pattern = "(((Current Time )?\\d?\\d:\\d\\d)|Video Player is loading\\.)\\n(.*?\\n)*?(^\\d?\\d:\\d\\d\\n|^Unmute\\n)"
+replacement = ""
+
+[[patterns]]
+pattern = "^Listen\\n\\n\\d?\\d:\\d\\d\\n"
+replacement = ""
+
+[[patterns]]
+pattern = "^\\*+\\sIn this Article(.*?\\n)*?(?=By \\[\\[https://www\\.bloomberg.com/authors/)"
+replacement = ""
+
+[[patterns]]
+pattern = "^\\sLEARN\\sMORE\\n"
+replacement = ""
+
+[[patterns]]
+pattern = "“|”"
+replacement = "\""
+
+[[patterns]]
+pattern = "([^\\s]+?)(\\\\\\(.+?\\\\\\))\\n*?\\s*?(\\\\\\(.+?\\\\\\))"
+replacement = "\\3"
+
+[[patterns]]
+pattern = "([^\\s]+?)(\\\\\\[.+?\\\\\\])\\n*?\\s*?(\\\\\\[.+?\\\\\\])"
+replacement = "\\3"
+
+[[patterns]]
+pattern = "([^\\s]+?)(\\\\\\[(.|\\s|\\n)+?\\\\\\])\\n*?\\s*?(\\\\\\[.+?\\\\\\])"
+replacement = "\\4"
+
+[[patterns]]
+pattern = "\\[\\[(https://wikimedia.org/api/rest_v1/media/math/render/svg/[^\\]]+?)\\]\\]"
+replacement = ""
+
+[[patterns]]
+pattern = "·"
+replacement = "-"
+
+[[patterns]]
+pattern = "^\\*+?\\s(?=Figure|Table|Example|Tip)"
+replacement = ""
+
+[[patterns]]
+pattern = "\\[\\[([^\\]]+?)\\]\\[([^\\[]+?)\\[\\[(file:\\/\\/[^\\]]+?)\\]\\]\\]\\]"
+replacement = "[[\\1][\\2]][[\\3]]"
+
+[[patterns]]
+pattern = "<<>>"
+replacement = ""
+
+[[patterns]]
+pattern = "\\[\\[file:[^\\]]+?\\.svg\\]\\]"
+replacement = ""
+
+[[patterns]]
+pattern = "\\[\\[(https?://[^\\]]+?)\\]\\[\\[\\[(file:[^\\]]+?)\\]\\]\\]\\]"
+replacement = "[[\\2]]"
+
+[[patterns]]
+pattern = "\\[\\[[^\\]]+?\\]\\[\\]\\]"
+replacement = ""
+
+[[patterns]]
+pattern = "\\^{//}"
+replacement = ""
+
+[[patterns]]
+pattern = "\\*\\sAn\\serror\\soccurred\\.\\n\\n\\[\\[(https:\\/\\/www\\.youtube\\.com/watch\\?v=[^\\]]+?)\\]\\[Try\\swatching\\sthis\\svideo\\son\\swww\\.youtube\\.com\\]\\],\\sor\\senable\\sJavaScript\\sif\\sit\\sis\\sdisabled\\sin\\syour\\sbrowser\\."
+replacement = "[[\\1]]"
+
+[[patterns]]
+pattern = "Gift this article\\n{2,}Have a confidential tip for our reporters\\? Get in Touch\\n{2,}Before it's here, it's on the Bloomberg Terminal\\n{2,}\\sLEARN MORE\\n"
+replacement = ""
+
+[[patterns]]
+pattern = "\\n^Save\\n"
+replacement = ""
+
+[[patterns]]
+pattern = "////Copy Link\\n"
+replacement = ""
+
+[[patterns]]
+pattern = "\\[\\[[^\\]]+?\\]\\[#\\]\\]"
+replacement = ""
+
+[[patterns]]
+pattern = "(?<=\\s)[^\\s]+?(?=\\\\\\(.+?\\\\\\))"
+replacement = ""
+
+[[patterns]]
+pattern = "\\n{2,}"
+replacement = "\\n\\n"
+
+[[patterns]]
+pattern = "\\[{3}[^\\]]+?\\]{3}"
+replacement = ""
