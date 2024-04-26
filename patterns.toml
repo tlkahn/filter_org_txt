@@ -83,6 +83,10 @@ pattern = "<<[^>]*?>>"
 replacement = ""
 
 [[patterns]]
+pattern = "\\[\\[file:([^\\]]+?)\\]\\[([^\\]]+?)\\]\\]"
+replacement = "$2"
+
+[[patterns]]
 pattern = "\\[\\[file:[^\\]]+?\\.svg\\]\\]"
 replacement = ""
 
@@ -109,6 +113,10 @@ replacement = ""
 [[patterns]]
 pattern = "\\s*?:PROPERTIES:\\n(\\s*?:.+?:\\s.*?\\n)*?\\s*?:END:"
 replacement = "\n\n"
+
+[[patterns]]
+pattern = "\\*+\\s(Figure|Listing)"
+replacement = "$1"
 
 [[patterns]]
 pattern = "​"

@@ -70,6 +70,7 @@ pub fn load_patterns_from_toml(
 
     Ok(patterns)
 }
+
 pub fn apply_patterns(patterns: &[HashMap<String, String>], text: &str) -> String {
     patterns.iter().fold(text.to_string(), |acc, p| {
         if let (Some(pattern), Some(replacement)) = (p.get("pattern"), p.get("replacement")) {
