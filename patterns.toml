@@ -11,24 +11,12 @@ pattern = "\\[\\[[^\\]+?]+?\\]\\[\\[\\[data:[^\\]]+?\\]\\]\\]\\]"
 replacement = ""
 
 [[patterns]]
-pattern = "\\s*?<<[^>]+?>>\\s*?"
-replacement = ""
-
-[[patterns]]
 pattern = "^(^\\d+?\\.?)\\s*$\\n*^\\s*?([^\\s][^\\n]*?)$"
-replacement = "\\1 \\2"
+replacement = "$1 $2"
 
 [[patterns]]
 pattern = "^(\\*+?)\\s+?([^\\s].*?$)"
-replacement = "\\1 \\2"
-
-[[patterns]]
-pattern = "\\[\\[file:([^\\]]+?)\\]\\]"
-replacement = "\\1"
-
-[[patterns]]
-pattern = "\\[\\[file:([^\\]]+?)\\]\\[([^\\]]+?)\\]\\]"
-replacement = "\\2"
+replacement = "$1 $2"
 
 [[patterns]]
 pattern = "^\\s*?-\\s*?$"
@@ -52,7 +40,7 @@ replacement = ""
 
 [[patterns]]
 pattern = "(^#\\+caption:.*?\\n)"
-replacement = "\\1#+attr_html: :width 80%\\n"
+replacement = "$1#+attr_html: :width 80%\\n"
 
 [[patterns]]
 pattern = "(((Current Time )?\\d?\\d:\\d\\d)|Video Player is loading\\.)\\n(.*?\\n)*?(^\\d?\\d:\\d\\d\\n|^Unmute\\n)"
@@ -68,15 +56,15 @@ replacement = "\""
 
 [[patterns]]
 pattern = "([^\\s]+?)(\\\\\\(.+?\\\\\\))\\n*?\\s*?(\\\\\\(.+?\\\\\\))"
-replacement = "\\3"
+replacement = "$3"
 
 [[patterns]]
 pattern = "([^\\s]+?)(\\\\\\[.+?\\\\\\])\\n*?\\s*?(\\\\\\[.+?\\\\\\])"
-replacement = "\\3"
+replacement = "$3"
 
 [[patterns]]
 pattern = "([^\\s]+?)(\\\\\\[(.|\\s|\\n)+?\\\\\\])\\n*?\\s*?(\\\\\\[.+?\\\\\\])"
-replacement = "\\4"
+replacement = "$4"
 
 [[patterns]]
 pattern = "\\[\\[(https://wikimedia.org/api/rest_v1/media/math/render/svg/[^\\]]+?)\\]\\]"
@@ -88,10 +76,10 @@ replacement = "-"
 
 [[patterns]]
 pattern = "\\[\\[([^\\]]+?)\\]\\[([^\\[]+?)\\[\\[(file:\\/\\/[^\\]]+?)\\]\\]\\]\\]"
-replacement = "[[\\1][\\2]][[\\3]]"
+replacement = "[[$1][$2]][[$3]]"
 
 [[patterns]]
-pattern = "<<>>"
+pattern = "<<[^>]*?>>"
 replacement = ""
 
 [[patterns]]
@@ -100,7 +88,7 @@ replacement = ""
 
 [[patterns]]
 pattern = "\\[\\[(https?://[^\\]]+?)\\]\\[\\[\\[(file:[^\\]]+?)\\]\\]\\]\\]"
-replacement = "[[\\2]]"
+replacement = "[[$2]]"
 
 [[patterns]]
 pattern = "\\[\\[[^\\]]+?\\]\\[\\]\\]"
@@ -108,20 +96,36 @@ replacement = ""
 
 [[patterns]]
 pattern = "\\*\\sAn\\serror\\soccurred\\.\\n\\n\\[\\[(https:\\/\\/www\\.youtube\\.com/watch\\?v=[^\\]]+?)\\]\\[Try\\swatching\\sthis\\svideo\\son\\swww\\.youtube\\.com\\]\\],\\sor\\senable\\sJavaScript\\sif\\sit\\sis\\sdisabled\\sin\\syour\\sbrowser\\."
-replacement = "[[\\1]]"
+replacement = "[[$1]]"
 
 [[patterns]]
 pattern = "\\[\\[[^\\]]+?\\]\\[#\\]\\]"
 replacement = ""
 
 [[patterns]]
-pattern = "\\n{2,}"
-replacement = "\n\n"
-
-[[patterns]]
 pattern = "\\[{3}[^\\]]+?\\]{3}"
 replacement = ""
 
 [[patterns]]
-pattern = ":PROPERTIES:\\n(:.+?:\\s.*?\\n)*?:END:"
+pattern = "\\s*?:PROPERTIES:\\n(\\s*?:.+?:\\s.*?\\n)*?\\s*?:END:"
+replacement = "\n\n"
+
+[[patterns]]
+pattern = "​"
 replacement = ""
+
+[[patterns]]
+pattern = " "
+replacement = " "
+
+[[patterns]]
+pattern = "(\\\\\\(:?.+?\\\\\\))[^\\s\\:]+?([\\s:])"
+replacement = "$1$2"
+
+[[patterns]]
+pattern = "#\\+begin_html\\s*\\n(.*\\n)*?#\\+end_html"
+replacement = ""
+
+[[patterns]]
+pattern = "\\n{2,}"
+replacement = "\n\n"

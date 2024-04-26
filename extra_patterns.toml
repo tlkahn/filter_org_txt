@@ -37,3 +37,15 @@ replacement = ""
 [[patterns]]
 pattern = "////Copy Link\\n"
 replacement = ""
+
+[[patterns]]
+pattern = "\\[\\[file:([^\\]]+?)\\]\\]"
+replacement = "$1"
+
+[[patterns]]
+pattern = "\\[\\[file:([^\\]]+?)\\]\\[([^\\]]+?)\\]\\]"
+replacement = "$2"
+
+[[patterns]]
+pattern = "\\s*?<<[^>]+?>>\\s*?"
+replacement = ""

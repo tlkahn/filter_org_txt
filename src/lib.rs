@@ -34,7 +34,7 @@ pub fn replace_svg_xml_with_links(img_dir: &str, s: &str) -> (String, String) {
         let mut f = File::create(&img_path).unwrap();
         f.write_all(&img_data).unwrap();
 
-        let img_link = format!("[[file://{}]]", img_path.display());
+        let img_link = format!("[[{}]]", img_path.display());
         modified_s = modified_s.replace(
             &format!("[[data:{}image/{};base64,{}]]", slashes, suffix, b64_string),
             &img_link,
